@@ -1,11 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Personal Site</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Dev Journey | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    
+ 
 </head>
 <body>
-  <!-- Add your HTML content here -->
+
+    <nav>
+        <h1>
+            <!-- INLINE SVG: This is how we keep images without JS 
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>-->
+            <img src="latptop.jpg"  class="profile-img">
+            Alejandro Lara Lima
+        </h1>
+        
+        <!-- Checkbox for the menu toggle -->
+        <input type="checkbox" id="menu-toggle-input">
+        
+        <!-- Label acting as the button -->
+        <label for="menu-toggle-input" class="menu-icon-label">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </label>
+
+        <div class="nav-right">
+            <ul id="nav-list">
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#skills">Toolbox</a></li>
+                <li><a href="#interests">Interests</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="status-badge">
+            <span style="display:inline-block; width:8px; height:8px; background:#10b981; border-radius:50%;"></span>
+            Pure HTML & CSS Version
+        </div>
+        <h2>Building digital <span>experiences</span> that tell a story.</h2>
+        <p>I'm a Web Development student focused on turning complex problems into clean, functional, and accessible code.</p>
+        <a href="#contact" class="btn-primary">
+            Let's work together 
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+    </header>
+
+    <main class="container">
+        <section id="projects">
+            <h2 class="section-title">Selected Projects</h2>
+            <div class="project-grid">
+                <div class="card">
+                    <div class="card-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 11h.01"></path><path d="M11 15h.01"></path><path d="M16 16h.01"></path><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16Z"></path><path d="M5.71 17.11a17.04 17.04 0 0 1 11.4-11.4"></path></svg>
+                    </div>
+                    <div class="card-content">
+                        <span class="tag">HTML/CSS</span>
+                        <h3>The Local Slice</h3>
+                        <p>Artisan pizzeria landing page.</p>
+                        <a href="#" style="color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 10px;">View Project →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M16 14v6"></path><path d="M8 14v6"></path><path d="M12 16v6"></path></svg>
+                    </div>
+                    <div class="card-content">
+                        <span class="tag">Design</span>
+                        <h3>SkyWatch</h3>
+                        <p>Minimalist weather tracking app.</p>
+                        <a href="#" style="color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 10px;">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="signature">[Your Name]</div>
+        <p>&copy; 2026 Designed & Developed by [Your Name]</p>
+    </footer>
+
 </body>
 </html>
