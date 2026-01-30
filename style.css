@@ -1,7 +1,7 @@
 
-        /* CSS VARIABLES 
-           Keeping these for easy color management.
-        */
+
+
+        /* CSS VARIABLES: Centralized design tokens for colors, fonts, and animations */
         :root {
             --bg-color: #fcfcfd;
             --text-color: #2d3436;
@@ -11,8 +11,10 @@
             --nav-bg: rgba(255, 255, 255, 0.8);
             --header-font: 'Inter', 'Segoe UI', system-ui, sans-serif;
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --placeholder-gray: #d1d5db;
         }
 
+        /* RESET: Ensuring consistent spacing across all browsers */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -30,7 +32,7 @@
             color: var(--text-color);
         }
 
-        /* NAVIGATION */
+        /* NAVIGATION: Sticky header with backdrop blur effect */
         nav {
             background: var(--nav-bg);
             backdrop-filter: blur(12px);
@@ -50,19 +52,24 @@
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
-        /* THE CHECKBOX HACK 
-           We hide the actual checkbox. We only care if it is checked or not.
-        */
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-color);
+        }
+
+        /* MOBILE MENU LOGIC: Using a hidden checkbox to toggle the menu visibility without JavaScript */
         #menu-toggle-input {
             display: none;
         }
 
-        /* The Label acts as our clickable hamburger icon */
         .menu-icon-label {
-            display: none; /* Hidden on desktop */
+            display: none;
             cursor: pointer;
             color: var(--text-color);
         }
@@ -71,6 +78,7 @@
             display: flex;
             list-style: none;
             gap: 25px;
+            align-items: center;
         }
 
         nav a {
@@ -87,24 +95,11 @@
             color: var(--accent-color);
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION: High-impact introduction area */
         .hero {
-            padding: 140px 10% 100px;
+            padding: 100px 10% 60px;
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--accent-soft);
-            color: var(--accent-color);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 20px;
         }
 
         .hero h2 {
@@ -115,11 +110,72 @@
             letter-spacing: -1.5px;
         }
 
-        .hero h2 span {
+        .hero p {
+            max-width: 650px;
+            font-size: 1.1rem;
+            color: #636e72;
+            margin-bottom: 30px;
+        }
+
+        /* ACTIONS: Social links and Resume button */
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .resume-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px var(--accent-soft);
+        }
+
+        .resume-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px var(--accent-soft);
+            background-color: #357abd;
+        }
+
+        .social-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-box {
+            width: 42px;
+            height: 42px;
+            background-color: var(--accent-soft);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
             color: var(--accent-color);
         }
 
-        /* GRID SYSTEM */
+        .social-box:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .social-box svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* LAYOUT CONTAINERS: Reusable grid and section spacing */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -127,58 +183,120 @@
         }
 
         section {
-            padding: 100px 0;
+            padding: 80px 0;
         }
 
         .section-title {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 40px;
+        }
+
+        /* FEATURED PROJECT: Horizontal card layout for showcasing work */
+        .featured-project {
             display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
             background: var(--card-bg);
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.02);
             transition: var(--transition);
-            border: 1px solid rgba(0,0,0,0.04);
         }
 
-        .card:hover {
-            transform: translateY(-8px);
+        .featured-img {
+            flex: 1.2;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+        }
+
+        .featured-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-content h3 {
+            font-size: 1.8rem;
+            margin: 10px 0 15px;
+        }
+
+        .tag {
+            background: var(--accent-soft);
+            color: var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            width: fit-content;
+        }
+
+        /* SKILLS GRID: Flexible auto-filling grid for tool list */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
             border-color: var(--accent-color);
         }
 
-        .card-img {
-            aspect-ratio: 16/9;
-            background-color: var(--accent-soft);
+        /* INTERESTS: Information cards for personal philosophy/focus */
+        .interests-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .interest-item {
+            background: var(--accent-soft);
+            padding: 30px;
+            border-radius: 20px;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .interest-item h4 {
             color: var(--accent-color);
+            font-size: 1.1rem;
+            font-weight: 700;
         }
 
-        .card-content {
-            padding: 25px;
+        .coming-soon {
+            margin-top: 40px;
+            padding: 30px;
+            border: 2px dashed var(--placeholder-gray);
+            border-radius: 20px;
+            text-align: center;
+            color: var(--placeholder-gray);
+            font-weight: 600;
         }
 
-        /* MOBILE STYLES */
+        /* RESPONSIVE DESIGN: Adapts layout for smaller screen sizes */
         @media (max-width: 768px) {
-            .menu-icon-label {
-                display: block; /* Show hamburger on mobile */
-            }
-
+            .menu-icon-label { display: block; }
+            
             nav ul {
-                display: none; /* Hide menu by default */
+                display: none;
                 position: absolute;
                 top: 100%;
                 left: 0;
@@ -189,38 +307,11 @@
                 box-shadow: 0 10px 15px rgba(0,0,0,0.05);
             }
 
-            /* THE MAGIC LINE: 
-               "If the checkbox is checked, find the <ul> that comes after it and show it"
-            */
-            #menu-toggle-input:checked ~ .nav-right ul {
-                display: flex;
-            }
-
-            .nav-right {
-                width: auto;
-            }
-        }
-
-        /* UTILITIES */
-        .tag {
-            background: var(--accent-soft);
-            color: var(--accent-color);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            font-weight: 700;
-        }
-
-        .btn-primary {
-            background: var(--accent-color);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            #menu-toggle-input:checked ~ .nav-right ul { display: flex; }
+            
+            .featured-project { flex-direction: column; }
+            
+            .hero-actions { flex-direction: column; align-items: flex-start; }
         }
 
         footer {
@@ -228,3 +319,4 @@
             border-top: 1px solid rgba(0,0,0,0.05);
             text-align: center;
         }
+        .signature { font-weight: 700; margin-bottom: 5px; }
